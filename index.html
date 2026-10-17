@@ -1,10 +1,60 @@
-<!DOCTYPE HTML>
-<html> 
-  <head>
-  </head>
-  <body> 
-    <p>
-      This is my first website in github.
-    </p>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First Real Component</title>
+  
+  <style>
+    /* 1. Layout: Center the card on the screen */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Takes up 100% of the screen height */
+      background-color: #f0f2f5;
+      font-family: sans-serif;
+    }
+
+    /* 2. Styling the Container Box */
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a soft drop shadow */
+    }
+
+    /* 3. A helper class we will trigger with JavaScript */
+    .dark-mode {
+      background-color: #222222 !important;
+      color: white !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- The HTML Structure -->
+  <div class="profile-card" id="myCard">
+    <h2>Alex Developer</h2>
+    <p>Building the web, one line at a time.</p>
+    
+    <!-- When clicked, this calls our custom JavaScript function below -->
+    <button onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+
+  <!-- The JavaScript Action -->
+  <script>
+    function toggleTheme() {
+      // Find the profile card box using its unique 'id'
+      var cardElement = document.getElementById("myCard");
+      
+      // ClassList.toggle automatically adds the class if it's missing,
+      // or removes it if it's already there!
+      cardElement.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
 </html>
